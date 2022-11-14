@@ -13,28 +13,26 @@ namespace Test2_Mounika_ListOperations
     public class Employee
     {
         public int EmployeeId { get; set; }
-        public string? EmployeeName { get; set; }
+      public string? EmployeeName { get; set; }
 
         public double Salary { get; set; }
 
         public void AddEmployees()
         {
             Console.WriteLine("Enter Employee ID");
-            EmployeeId = int.Parse(Console.ReadLine());
+            this.EmployeeId = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter Employee Name");
-            EmployeeName = Console.ReadLine();
+           this.EmployeeName = Console.ReadLine();
             Console.WriteLine("Enter Employee Salary");
-            Salary = double.Parse(Console.ReadLine()); 
+          this.Salary = double.Parse(Console.ReadLine()); 
         }
         public void DisplayEmployeeDetails()
         {
-            Console.WriteLine("Employee ID  : " + EmployeeId);
-            Console.WriteLine("Employee Name  : " + EmployeeName);
-
-            Console.WriteLine("Employee Salary  : " + Salary);
+            Console.WriteLine("Employee ID : {0}" + Environment.NewLine + "Employee Name : {1}" + Environment.NewLine + "Employee Salary : {2}",
+               this.EmployeeId, this.EmployeeName, this.Salary);
         }
     }
-
+    
 }
 
 

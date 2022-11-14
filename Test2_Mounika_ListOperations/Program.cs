@@ -12,7 +12,7 @@ Employee objectEmployee = new Employee();
 bool choice = true;
 do
 {
-    Console.WriteLine("Select One Option\n1.  Add Employee\n2.  Remove Employee\n3.  Insert Employee By Index\n4.  Remove Employee By Index\n5.  Display All Records\n6.  Search Employee\n7.  Total Records Count\n8.  Clear The List\n9.  Clear Console\n10.  Stop The Program");
+    Console.WriteLine("Select One Option\n1.  Add Employee\n2.  Remove Employee\n3.  Insert Employee By Index\n4.  Remove Employee By Index\n5.  Show All Records\n6.  Search Employee\n7.  Total Records Count\n8.  Clear The List\n9.  Clear Console\n10.  Stop The Program");
     int selectedOption = int.Parse(Console.ReadLine());
 
 
@@ -62,7 +62,7 @@ do
 
 void AddEmployee()
 {
-    Console.WriteLine("Enter How Many Employees Do You Wants To Add");
+    Console.WriteLine("Enter How Many Employees Do You Want To Add");
     int noOfEmployees = int.Parse(Console.ReadLine());
 
 
@@ -76,29 +76,35 @@ void AddEmployee()
     }
     if (RecordStatus)
     {
-        Console.WriteLine("*****Employee Recors Inserted Successfully******");
+        Console.WriteLine("*****Employee Records Inserted ******");
     }
 }
 void RemoveEmployee()
 {
+    //foreach (Employee employee in employeeList)
+    //{
+    //    employee.DisplayEmployeeDetails();
+    //}
+  
     Console.WriteLine("Enter Employee Id To Remove From Records");
-    int removeVaiable = int.Parse(Console.ReadLine());
+    int removeId = int.Parse(Console.ReadLine());
 
 
-
+    
     bool isRecordFound = false;
     foreach (Employee employee in employeeList)
     {
-        if (removeVaiable == employee.EmployeeId)
+        if (removeId == employee.EmployeeId)
         {
             employeeList.Remove(employee);
             isRecordFound = true;
             break;
         }
+        
     }
     if (isRecordFound)
     {
-        Console.WriteLine("Employee Record Removed From Record Successfully");
+        Console.WriteLine("Employee Record Removed From Employee Record Successfully");
     }
     else
     {
@@ -107,7 +113,7 @@ void RemoveEmployee()
 }
 void InsertRecordByIndex()
 {
-    Console.WriteLine("Enter Index Number Where You Want's To Insert New Employee");
+    Console.WriteLine("Enter Index Number Where You Want To Insert New Employee");
     int insertVaiable = int.Parse(Console.ReadLine());
 
 
@@ -126,16 +132,18 @@ void RemoveEmployeeByIndex()
 
 
 
-    bool isRemoveVariableFoud = false;
+    bool isRemoveVariableFound = false;
     foreach (Employee employee in employeeList)
     {
-        if (indexVariable == employee.EmployeeId)
-        {
+        
+        
             employeeList.RemoveAt(indexVariable);
-            isRemoveVariableFoud = true;
-        }
+            isRemoveVariableFound = true;
+        break;
+       
+        
     }
-    if (isRemoveVariableFoud)
+    if (isRemoveVariableFound)
     {
         Console.WriteLine(" Record deleted by Index number successfully ");
     }
@@ -150,15 +158,19 @@ void RemoveEmployeeByIndex()
 void ShowAllEmployeeRecords()
 {
     Console.WriteLine("-----All Employee Details In The List----------");
-    foreach (Employee employee in employeeList)
+    employeeList.Count();
+    if (employeeList.Count > 0)
     {
-        employee.DisplayEmployeeDetails();
-        Console.WriteLine("___________________________");
+        foreach (Employee employee in employeeList)
+        {
+            employee.DisplayEmployeeDetails();
+            Console.WriteLine("___________________________");
+        }
     }
 }
 void SearchEmployee()
 {
-    Console.WriteLine("Enter employee Id to Search");
+    Console.WriteLine("Enter Employee Id to Search");
     int searchVariable = int.Parse(Console.ReadLine());
 
     bool isSearchVariableFound = false;
@@ -177,7 +189,7 @@ void SearchEmployee()
     }
     else
     {
-        Console.WriteLine(" Please enter valid employee ID ");
+        Console.WriteLine(" Please Enter Valid Employee ID ");
     }
 }
 void RecordCount()
